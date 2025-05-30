@@ -1,0 +1,343 @@
+:root {
+  --primary: #5a6d85;
+  --accent: #e7a426;
+  --bg: #f4f4f4;
+  --text: #222;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1.2em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 800px) {
+  nav ul {
+    flex-direction: column;
+    background: var(--primary);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 180px;
+    display: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .nav-toggle:checked + .nav-toggle-label + ul {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: block;
+  }
+}
+
+.hero {
+  background: url('backgroung-truck.jpg') center/cover no-repeat;
+  color: var(--white);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 34, 34, 0.45);
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 2em 1em;
+}
+
+.hero h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.cta-btn {
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.7em 2em;
+  border: none;
+  border-radius: 2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.cta-btn:hover {
+  background: #b93c1c;
+}
+
+.services {
+  background: var(--white);
+  padding: 3em 1em 2em 1em;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  color: var(--primary);
+}
+
+.service-list {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: var(--bg);
+  border-radius: 1em;
+  box-shadow: 0 2px 12px rgba(90,109,133,0.08);
+  padding: 1.5em;              /* Consistent padding on all sides */
+  width: 350px;
+  min-height: 420px;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.service-card ul li {
+           /* Align wrapped lines with text, not bullet */
+  padding-left: 1em;           /* Space between bullet and text */
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 24px rgba(90,109,133,0.16);
+}
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 0;
+  transition: transform 0.2s;
+  display: block;
+  border-radius: 0.5em;
+}
+
+.service-card:hover img {
+  transform: scale(1.08);
+}
+
+.service-card h3 {
+  color: var(--accent);
+  margin-bottom: 0.7em;
+  margin-top: 1em;
+}
+
+.service-card ul {
+  list-style: disc outside;    /* Bullets outside */
+  text-align: left;
+  font-size: 1em;
+  color: #444;
+  margin: 1em 0 0 0;
+  padding-left: 2em;           /* Indent bullets */
+}
+
+.about {
+  background: var(--white);
+  padding: 2em 1em;
+  text-align: center;
+  max-width: 600px;   /* Limit width */
+  margin: 2em auto;
+  border-radius: 0.8em;
+
+ 
+}
+.about h2 {
+  color: var(--primary);
+  margin-bottom: 1em;
+}
+
+.about ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1em;
+  color: #444;
+  font-size: 1em;
+  list-style: disc inside;
+}
+
+.contact {
+  background: var(--bg);
+  padding: 2em 1em 3em 1em;
+  text-align: center;
+}
+
+.contact h2 {
+  color: var(--primary);
+  margin-bottom: 1em;
+}
+
+.contact-info {
+  margin-bottom: 1.5em;
+  font-size: 1.1em;
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8em;
+  border: 1px solid #bbb;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 0.8em;
+  border-radius: 2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-form button:hover {
+  background: #b93c1c;
+}
+
+.form-note {
+  margin-top: 1em;
+  color: #666;
+  font-size: 0.95em;
+}
+
+footer {
+  background: var(--primary);
+  color: #eee;
+  text-align: center;
+  padding: 1.2em 0;
+  font-size: 1em;
+  margin-top: 2em;
+}
+
+@media (max-width: 1000px) {
+  .service-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-container {
+    height: 45px;
+  }
+  .hero h1 {
+    font-size: 1.3em;
+  }
+  .service-card {
+    width: 95vw;
+    max-width: 340px;
+  }
+}
